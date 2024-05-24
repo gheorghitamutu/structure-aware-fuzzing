@@ -1,0 +1,36 @@
+[workspace]
+
+members = [
+	"models"
+]
+
+default-members = [
+	"models"
+]
+
+resolver = "2"
+
+[workspace.package]
+authors = [
+	"Gheorghiță Mutu <gheorghitamutu@gmail.com>"
+]
+edition = "2021"
+version = "0.1.0"
+description = "Structure-aware fuzzing comparison"
+documentation = ""
+repository = "https://github.com/gheorghitamutu/structure-aware-fuzzing"
+publish = false
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+
+[profile.release]
+lto = "fat"
+debug = true
+strip = false
+opt-level = 3
+panic = "abort"
+
+[workspace.dependencies]
+serde = { version = "1.0.202", features = ["derive"] }
+arbitrary = { version = "1.3.2", features = ["derive"] }

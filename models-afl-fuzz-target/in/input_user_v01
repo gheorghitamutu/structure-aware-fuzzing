@@ -1,0 +1,7 @@
+{
+    "version": 1,
+    "username": "test",
+    "password": "test_password",
+    "role": "admin",
+    "unique_identifier": "test_identifier"
+}

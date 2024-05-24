@@ -1,0 +1,30 @@
+[package]
+name = "models-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+models = { path = "../models", features = ["arbitrary"] }
+
+libfuzzer-sys = "0.4"
+
+[workspace]
+members = ["."]
+
+[profile.release]
+lto = "fat"
+debug = true
+strip = false
+opt-level = 3
+panic = "abort"
+
+[[bin]]
+name = "fuzz_target_user_v01"
+path = "fuzz_targets/fuzz_target_user_v01.rs"
+test = false
+doc = false
+bench = false
